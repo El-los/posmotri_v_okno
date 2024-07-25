@@ -16,6 +16,7 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  overflow-y:hidden;
 }
 
 h1,
@@ -65,9 +66,19 @@ ol {
 
 
 .content__list {
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   max-height: 300px;
   position: relative;
+  scrollbar-width: none; /* в макете нет ни намёка на скролбарр, но в видео по заданию есть.  */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+
+  
+}
+
+.content__list::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
 }
 
 .content__details {
@@ -131,11 +142,13 @@ video.result__video {
 
 .search-form__fieldset-title{
   font-weight: 400;
-  font-size: 18px;  
+  font-size: 18px; 
 }
+
 
 .content__card-link {
   text-decoration: none;
+ 
 }
 
 .content__video-card-description {
@@ -152,8 +165,15 @@ video.result__video {
   white-space: nowrap;
 } 
 
+.search-form__fieldset > .search-form__label {
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff ;
+}
+
+
+
 .search-form__label {
-  display: inline-block;
+  display: flex;
   width: fit-content; 
 }
 
@@ -161,16 +181,19 @@ video.result__video {
 {
   display: flex;
   justify-content: space-between;
-
 }
 
 .search-form__textfield {
   appearance:none;
+  width: 100%;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  /* cursor: pointer;  по макету вроде не должно быть*/
 }
-/* 
-.search-form__pseudo-checkbox {
-  background-color: red;
-} */
+
+
+
 
 .button {
   cursor: pointer;
@@ -185,3 +208,110 @@ video.result__video {
 .more-button {
   width: 100%;
 }
+
+/* .search-form > .search-form__fieldset:nth-child(1) {
+ border-bottom: 1px solid #fff;
+} 
+ 
+
+через потомков  я не смог выбрать заголовок h2 "Город"... выбираются и последующие потомки потомков. поэтому пришлось добавить в html класс tille-city. как можно сделать лучше?*/
+
+.title-city {
+  padding-bottom: 3px;
+  border-bottom: 1px solid white;
+}
+
+.search-form__pseudo-checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+
+/* Стилизаация элементов со свойством Active */
+
+.search-form__pseudo-checkbox:active {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  
+  border: 1px solid #fff;
+  background-color: #fff;
+  background-clip: content-box;
+}
+
+.button:active {
+  background-color: #545050;
+}          /* по макету active есть толь  ко у кнопки с классом search-form__submit-button, но это ведь как то глупо */
+
+.content__list-item:active {
+  background-color: #545050;
+}
+
+.search-form__fieldset > .search-form__label:active {
+  outline: none;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-radius: 0%;
+}
+
+/* Стилизаация элементов со свойством Hover */
+.button:hover {
+  text-decoration: underline;
+}
+
+.search-form__label-text:hover {
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+.content__list-item:hover {
+  cursor:pointer;
+ 
+  text-decoration: underline;                 
+}     /* такое решение выдаёт подчёркивание, не соответствующее макету  */
+
+
+/* а при таком решении вёрстка сыпется из-за двух инлайнов подряд, ну либо подчёркивает весь display-block */
+/*.content__list-item:hover a article div h2{
+  display: inline-block;
+  border-bottom: 2px solid #fff;
+}
+
+.content__list-item:hover a article div p{
+  display: block;
+  border-bottom: 1px solid #fff;
+} 
+  */
+
+
+/* Стилизаация элементов со свойством Focus */
+
+.content__list-item:focus {
+  outline: none;
+  border: 1px solid #fff;
+}
+
+.button:focus {
+  text-decoration: underline;
+  outline: none;
+  border: 3px double #fff;
+}
+
+.search-form__label:focus-within {
+  border: 1px solid #FFFFFF;
+  padding:  1px;
+  outline: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:focus-visible {
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+}
+
