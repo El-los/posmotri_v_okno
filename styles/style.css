@@ -36,3 +36,152 @@ ul,
 ol {
   list-style: none;
 }
+
+
+.content {
+  margin: 133px auto;
+  inline-size: 1140px;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 30px;
+  min-height: 534px;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  width: 100%;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+}
+
+
+.content__list {
+  overflow: scroll;
+  max-height: 300px;
+  position: relative;
+}
+
+.content__details {
+  min-height: 100%;
+  
+}
+
+.content__video-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+}
+
+.result__video-container  {
+  min-height: 386px;
+  min-width: 711px;
+  position: relative;
+}
+
+video.result__video {
+  object-fit: contain;
+  width: 100%;
+}
+
+.title {
+  font-family: oswald;
+  font-size: 95px;
+  text-transform: uppercase;
+  line-height: 0.9em;
+  margin-bottom: 26px;
+
+}
+
+.content__accent {
+  color:grey;
+}
+
+.content__list-item:not(:last-child){
+  margin-bottom: 30px;
+}
+
+.content__video-card-thumbnail {
+  max-height: 103px;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+}
+
+.content__video-card-description-container h2 {
+  text-transform: uppercase;
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__fieldset-title{
+  font-weight: 400;
+  font-size: 18px;  
+}
+
+.content__card-link {
+  text-decoration: none;
+}
+
+.content__video-card-description {
+  line-height: normal;  /* вот тут не понял. в каждой карточке по два слова описания (одна строка), как настроить line-height имея только одну строку текста не понял */
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
+
+.search-form__label {
+  display: inline-block;
+  width: fit-content; 
+}
+
+.search-form__checkbox-list 
+{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.search-form__textfield {
+  appearance:none;
+}
+/* 
+.search-form__pseudo-checkbox {
+  background-color: red;
+} */
+
+.button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid white;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  padding:5px;
+}
+
+.more-button {
+  width: 100%;
+}
