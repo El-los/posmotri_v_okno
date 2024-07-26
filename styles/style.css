@@ -38,9 +38,8 @@ ol {
   list-style: none;
 }
 
-
 .content {
-  margin: 133px auto;
+  margin: 128px auto;
   inline-size: 1140px;
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -51,29 +50,28 @@ ol {
 .search-form {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-between;
   align-items: end;
-  gap: 25px;
+  align-self: end;
+  gap: 40px;
   width: 100%;
+ padding-bottom: 5px;
 }
 
 .result {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: end;
+  justify-content: space-between;
 }
-
 
 .content__list {
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 300px;
+  max-width: 395px;
   position: relative;
   scrollbar-width: none; /* в макете нет ни намёка на скролбарр, но в видео по заданию есть.  */
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-
-  
 }
 
 .content__list::-webkit-scrollbar {
@@ -83,46 +81,57 @@ ol {
 
 .content__details {
   min-height: 100%;
-  
 }
 
 .content__video-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
- 
 }
 
 .result__video-container  {
-  min-height: 386px;
   min-width: 711px;
   position: relative;
+  object-fit: none;
+  margin-top: 74px;
 }
 
 video.result__video {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
+  max-height: 386px;
+}
+
+.search-form__label-text {
+  color: rgba(255, 255, 255);
+  margin-left: 5px;
 }
 
 .title {
   font-family: oswald;
-  font-size: 95px;
+  font-size: 75px;
   text-transform: uppercase;
-  line-height: 0.9em;
-  margin-bottom: 26px;
-
+  line-height: 0.93em;
+  margin-bottom: 24px;
 }
 
 .content__accent {
-  color:grey;
+  color:#545050;
+}
+
+.content__list-item {
+  max-height: 107px;
 }
 
 .content__list-item:not(:last-child){
-  margin-bottom: 30px;
+  margin-bottom: 33px;
 }
 
 .content__video-card-thumbnail {
   max-height: 103px;
+  min-height: 103px;
+  min-width: 194px;
+  padding: 2px;
 }
 
 .content__video-card-description-container {
@@ -132,8 +141,17 @@ video.result__video {
   font-size: 18px;
 }
 
-.content__video-card-description-container h2 {
+.content__video-card-title {
   text-transform: uppercase;
+  line-height: 30px;
+  font-size: 30px;
+  font-weight: 700; 
+  letter-spacing: 2px;
+  /* font-stretch: condensed;  не рабочая штука совсем(( 
+  transform: scaleX(0.95) scaleY(1.15);
+  transform-origin: 0 0;       так конечно можно но что-то мне подсказывает что это не правильное решение, но иначе пиксель пёрфект не получается*/
+  font-family: 'Fira Sans Condensed', sans-serif, Oswald;
+  margin-bottom: 3px;
 }
 
 .search-form__fieldset {
@@ -142,13 +160,13 @@ video.result__video {
 
 .search-form__fieldset-title{
   font-weight: 400;
-  font-size: 18px; 
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 
 .content__card-link {
   text-decoration: none;
- 
 }
 
 .content__video-card-description {
@@ -170,9 +188,12 @@ video.result__video {
   border-top: 1px solid #fff ;
 }
 
+.search-form__label-text::placeholder {
+  font-size: 22px;
+  color: rgba(255, 255, 255);
+}
 
-
-.search-form__label {
+.search-form__label {  
   display: flex;
   width: fit-content; 
 }
@@ -181,19 +202,21 @@ video.result__video {
 {
   display: flex;
   justify-content: space-between;
+  margin: 0 0 3px 0;
+  gap:15px
 }
 
 .search-form__textfield {
   appearance:none;
   width: 100%;
+  min-width: 225px;
   font-family: inherit;
   background-color: transparent;
   border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
   /* cursor: pointer;  по макету вроде не должно быть*/
 }
-
-
-
 
 .button {
   cursor: pointer;
@@ -202,19 +225,16 @@ video.result__video {
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  padding:5px;
+  padding: 5px;
 }
 
 .more-button {
   width: 100%;
 }
 
-/* .search-form > .search-form__fieldset:nth-child(1) {
- border-bottom: 1px solid #fff;
-} 
- 
-
-через потомков  я не смог выбрать заголовок h2 "Город"... выбираются и последующие потомки потомков. поэтому пришлось добавить в html класс tille-city. как можно сделать лучше?*/
+.search-form__submit-button {
+  max-width: 195px;
+}
 
 .title-city {
   padding-bottom: 3px;
@@ -222,8 +242,8 @@ video.result__video {
 }
 
 .search-form__pseudo-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   background-color: transparent;
   border: 1px solid #fff;
 }
@@ -243,7 +263,7 @@ video.result__video {
 
 .button:active {
   background-color: #545050;
-}          /* по макету active есть толь  ко у кнопки с классом search-form__submit-button, но это ведь как то глупо */
+}          /* не понимаю как читать макте. вроде как active есть толь ко у кнопки с классом search-form__submit-button, но это ведь глупо, если кнопки дефолтно стилизованы одинаково*/
 
 .content__list-item:active {
   background-color: #545050;
@@ -262,7 +282,7 @@ video.result__video {
 }
 
 .search-form__label-text:hover {
-  text-decoration: underline;
+  text-decoration: none;
   cursor:pointer;
 }
 
@@ -270,10 +290,12 @@ video.result__video {
   cursor:pointer;
  
   text-decoration: underline;                 
-}     /* такое решение выдаёт подчёркивание, не соответствующее макету  */
+}     
+
+/* такое решение выдаёт подчёркивание, не соответствующее макету  */
 
 
-/* а при таком решении вёрстка сыпется из-за двух инлайнов подряд, ну либо подчёркивает весь display-block */
+/* но при таком решении вёрстка сыпется из-за двух инлайнов подряд, ну либо подчёркивает весь display-block */
 /*.content__list-item:hover a article div h2{
   display: inline-block;
   border-bottom: 2px solid #fff;
@@ -305,13 +327,14 @@ video.result__video {
   outline: none;
 }
 
-.search-form__textfield:focus {
+.search-form__textfield:focus-visible {
   outline: none;
 }
 
-.search-form__textfield:focus-visible {
+ .search-form__textfield:focus {
   border-top: 1px solid #FFFFFF;
   border-bottom: 1px solid #FFFFFF;
   outline: none;
-}
+  color: rgba(255, 255, 255, 0.7);
+} 
 
