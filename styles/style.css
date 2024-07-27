@@ -65,7 +65,6 @@ ol {
 .content__list {
   overflow-y: scroll;
   max-height: 300px;
-  
   position: relative;
   scrollbar-width: auto;
   scrollbar-color: rgba(0, 0, 0, 025) transparent;
