@@ -16,6 +16,9 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 h1,
@@ -39,7 +42,6 @@ ol {
 
 .content {
   margin: auto;
-  padding-top: 128px;
   inline-size: 1140px;
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -300,7 +302,7 @@ video.result__video {
 
 /* Стилизация элементов со свойством Сhecked */
 
- input[type="checkbox"]:checked + span {
+.search-form__checkbox[type="checkbox"]:checked + .search-form__pseudo-checkbox {
   box-sizing: border-box;
   width: 19px;
   height: 19px;
