@@ -9,7 +9,8 @@
 
 .error__title {
   color: #fff;
-  font-family: Oswald, sans-serif;
+  /* font-family: Oswald, sans-serif;   не понимаю почему шрифт oswald игнорирует font-weight, все значение из фигмы. без oswald ближе к макету*/ 
+  font-weight: 400;
   font-size: 30px;
   text-align: center;
   text-transform: uppercase;

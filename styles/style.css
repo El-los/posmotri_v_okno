@@ -46,6 +46,7 @@ ol {
   display: grid;
   grid-template-columns: min-content 1fr;
   gap: 30px;
+  min-height: 533.25px;
 }
 
 .search-form {
@@ -62,8 +63,10 @@ ol {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: space-between;
+  justify-content: end;
+  gap: 16px;
 }
+
 
 .content__list {
   overflow-y: scroll;
@@ -92,8 +95,7 @@ ol {
   min-width: 711px;
   height: 386px;
   position: relative;
-  object-fit: none;
-  margin-top: 74px;
+  object-fit: none; 
 }
 
 video.result__video {
@@ -157,6 +159,7 @@ video.result__video {
   font-size: 18px;
   margin-bottom: 5px;
 }
+
 
 
 .content__card-link {
@@ -271,7 +274,6 @@ video.result__video {
 
 .button:focus {
   outline: none;
-  border: none;
 }
 
 .button:focus-visible {
